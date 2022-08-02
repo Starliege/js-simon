@@ -81,11 +81,11 @@ function check() {
     body.classList.add("neon-king");
     guessed.classList.add("king");
     opinion.classList.add("king");
-      opinion.innerHTML = "Che king! Li hai ricordati tutti!";
+      opinion.innerHTML = "DAJE ROCCIA";
     }
   } else {
     opinion.classList.add("bad");
     body.classList.add("neon-bad");
-    opinion.innerHTML = "Mammamia fai schifo!<br>Non ne hai azzeccato neanche uno!";
+    opinion.innerHTML = "Vabbè dai...";
   }
 }

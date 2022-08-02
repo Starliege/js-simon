@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(0deg, hsl(0, 59%, 11%) 0%, hsl(0, 100%, 12%) 100%);
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 0 1px 2px hsl(0, 0%, 45%);
+    user-select: none;
+  }
+  
+  #container {
+    width: 950px;
+    height: 350px;
+    background-color: transparent;
+    perspective: 1000px;
+  }
+  
+  #content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, hsl(0, 100%, 13%) 0%, hsl(0, 98%, 24%) 100%);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    text-align: center;
+  }
+  
+  .turn {
+    transform: rotateY(180deg);
+  }
+  
+  #front, #back {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  #front div:first-child, #numbers {
+    animation: scomparsa 0.5s linear forwards;
+    animation-delay: 30s;
+  }
+  
+  #back {
+    transform: rotateY(180deg);
+  }
+  
+  #numbers, #guessed {
+    font-size: 4rem;
+    font-weight: bold;
+  }
+  
+  #loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40px, -47px);
+    font-size: 5rem;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: comparsa 0.5s linear forwards;
+    animation-delay: 30.5s;
+  }
+  
+  #loading i {
+    animation: attesa 1s linear infinite;
+  }
+  
+  .hidden {
+    visibility: hidden !important;
+  }
+  
+  /* Risultati */
+  .bad, .ok, .king {
+    font-weight: bold;
+  }
+  
+  .bad {
+    color: #ff3737;
+  }
+  
+  .ok {
+    color: #4eff37;
+  }
+  
+  .king {
+    color: #d4af37;
+    text-shadow: 0 0 5px #ff0;
+  }
+  
+  .neon-bad {
+    box-shadow: inset 0 0 150px 30px #ff0000;
+  }
+  
+  .neon-king {
+    box-shadow: inset 0 0 50px #ff0, inset 0 0 250px 10px #d4af37;
+  }
+  
+  /* Animazioni */
+  @keyframes attesa {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+  
+  @keyframes scomparsa {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes comparsa {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
